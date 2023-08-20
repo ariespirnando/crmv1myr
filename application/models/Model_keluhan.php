@@ -16,6 +16,14 @@ class Model_keluhan extends CI_Model {
         return $query->row_array();
     }
 
+	function get_firstdataemail($i){    
+        $this->db->where('dt_keluhan.ideleted',0);  
+		$this->db->where('guid_keluhan',$i);
+        $this->db->join('dt_consigne','dt_keluhan.guid_consigne = dt_consigne.guid_consigne','inner'); 
+		$query = $this->db->get('dt_keluhan');
+        return $query->row_array();
+    }
+
     #normal
     function count_all(){ 
         $this->db->select('dt_keluhan.guid_keluhan');  

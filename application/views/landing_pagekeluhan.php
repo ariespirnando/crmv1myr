@@ -25,6 +25,8 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="<?php echo base_url().'assets/landing_page/' ?>assets/css/style.css">
     <!-- endinject -->
+
+		<link href="<?php echo base_url().'assets/' ?>plugins/notification/snackbar/snackbar.min.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
@@ -63,98 +65,26 @@
             <div class="row">
               <div class="col-lg-4">
                 <div class="d-flex position-relative float-left">
-                  <h3 class="section-title">Informasi dan Kegiatan</h3>
+                  <h3 class="section-title">Keluhan Konsinyasi</h3>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-lg-6  mb-5 mb-sm-2">
-                <div class="position-relative image-hover">
-                  <img
-                    src="<?php echo base_url().'assets/landing_page/' ?>assets/images/dashboard/cuci-gudang.png"
-                    class="img-fluid"
-                    alt="world-news"
-                  />
-                  <span class="thumb-title">PROMOSI</span>
-                </div>
-                <h1 class="font-weight-600 mt-3">
-                  CUCI GUDANG KOTABUMI 10.10
-                </h1>
-                <p class="fs-15 font-weight-normal">
-                  CUCI GUDANG KOTABUMI 10.10, Segera hubungi sales kami
-                </p>
-              </div>
-              <div class="col-lg-6  mb-5 mb-sm-2">
-                <div class="row">
-                  <div class="col-sm-6  mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img
-                        src="<?php echo base_url().'assets/landing_page/' ?>assets/images/dashboard/cucigudang.jpg"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">PROMOSI</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      CUCI GUDANG KOTABUMI 9.9
-                    </h5>
-                    <p class="fs-15 font-weight-normal">
-                      CUCI GUDANG KOTABUMI 9.9, Segera hubungi sales kami
-                    </p>
-                  </div>
-                  <div class="col-sm-6  mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img
-                        src="<?php echo base_url().'assets/landing_page/' ?>assets/images/dashboard/17agustus.jpg"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">KEGIATAN</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      17 Agustus
-                    </h5>
-                    <p class="fs-15 font-weight-normal">
-                      Semarak 17 Agustus, Bersama PT Cipta Niaga Semesta Kotabumi
-                    </p>
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-sm-6  mb-5 mb-sm-2">
-                    <div class="position-relative image-hover">
-                      <img
-                        src="<?php echo base_url().'assets/landing_page/' ?>assets/images/dashboard/bantuan.jpg"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">KEGIATAN</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      Bantuan Sosial
-                    </h5>
-                    <p class="fs-15 font-weight-normal">
-                      Pemberian bantuan sosial, kepada warga tidak mampu
-                    </p>
-                  </div>
-                  <div class="col-sm-6">
-                    <div class="position-relative image-hover">
-                      <img
-                        src="<?php echo base_url().'assets/landing_page/' ?>assets/images/dashboard/promo.png"
-                        class="img-fluid"
-                        alt="world-news"
-                      />
-                      <span class="thumb-title">PROMOSI</span>
-                    </div>
-                    <h5 class="font-weight-600 mt-3">
-                      TURUN HARGA
-                    </h5>
-                    <p class="fs-15 font-weight-normal">
-                      TURUN HARGA, Segera hubungi sales kami
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <div class="row"> 
+							<div class="col-md-12">
+								<div class="card"> 
+									<div class="card-body">
+										<form action="<?php echo base_url()."/landingpage/keluhanAdd?"?> " method="post">
+											<div class="form-group">
+												<input name="email" type="email" class="form-control" placeholder="Email" required autofocus>
+											</div>
+											<div class="form-group">
+												<textarea name="keterangan" id="" cols="30" rows="10" class="form-control" placeholder="Tulis isi laporan disini..." required></textarea>
+											</div> 
+											<button type="submit" class="btn btn-primary">KIRIM PENGADUAN</button>
+										</form>
+									</div>
+								</div> 
+						</div>
           </div> 
         </div>
         <!-- main-panel ends -->
@@ -213,5 +143,29 @@
     <!-- Custom js for this page-->
     <script src="<?php echo base_url().'assets/landing_page/' ?>assets/js/demo.js"></script>
     <!-- End custom js for this page-->
+
+		<script src="<?php echo base_url().'assets/' ?>plugins/notification/snackbar/snackbar.min.js"></script>
   </body>
 </html>
+
+<?php 
+if($this->session->userdata('message') <> ''){ 
+    if($this->session->userdata('info')==1){
+        echo "<script>
+                    Snackbar.show({
+                        text: '".$this->session->userdata('message')."',
+                        actionTextColor: '#fff',
+                        backgroundColor: '#8dbf42'
+                    });
+                </script>";
+    }else{
+        echo "<script>
+                    Snackbar.show({
+                        text: '".$this->session->userdata('message')."',
+                        actionTextColor: '#fff',
+                        backgroundColor: '#e7515a'
+                    });
+                </script>";
+    } 
+}
+?>

@@ -50,6 +50,12 @@ class Model_auth extends CI_Model {
         $query = $this->db->get('auth_email');
         return $query->num_rows();
     }
- 
+	
+	function cekemailconsigne($email){
+		$this->db->where('auth_email.email',$k);   
+        $this->db->where('auth_email.ideleted',0);   
+        $query = $this->db->get('auth_email');
+        return $query->num_rows();
+	}
 }
 ?>

@@ -31,9 +31,7 @@
                 <div class="col-md-6">
                     <h5 class="">Grafik Keluhan Perbulan</h5>
                 </div> 
-                <div class="col-md-6"> 
-                    <h5 class="btn btn-primary" style="float: right;">Download</h5>
-                </div>
+                
             </div> 
         </div>
 

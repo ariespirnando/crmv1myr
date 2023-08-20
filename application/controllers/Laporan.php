@@ -23,7 +23,7 @@ class Laporan extends CI_Controller {
 	public function index()
 	{  
 		$data['modul'] = 'masterlaporan';  
-		$data['loaddt'] = $this->db->query("CALL `jumlahloginperbulan`()")->result_array(); 
+		$data['loaddt'] = $this->db->query("CALL `jumlahkeluhanperbulan`()")->result_array(); 
         $this->template->load('template/template','laporan/view', $data);  
 	}
 }

@@ -45,7 +45,7 @@
     </span> </th>
                         <th>Kode</th> 
                         <th>Nama Consignee</th> 
-                        <th>No Hp</th>   
+                        <th>No Hp / Email</th>   
                         <th>Status</th>  
                         <th class="text-center" colspan="3">Action</th>
                         
@@ -59,8 +59,8 @@
                     <tr>
                         <td class="text-center"><?php echo $no?></td>
                         <td><?php echo $d['kode_consigne']?> </td> 
-                        <td><?php echo $d['nama_consigne']?></td>
-                        <td><?php echo $d['nohandpone']?></td> 
+						<td><?php echo $d['nama_consigne']?></td> 
+                        <td><?php echo $d['nohandpone']; echo $d['email']==""?"":" / ".$d['email']; ?>  </td> 
                         <td><?php echo $d['status']?></td> 
                          
                         <td class="text-center">
