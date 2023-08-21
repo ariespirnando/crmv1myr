@@ -155,8 +155,8 @@ class Keluhancs extends CI_Controller {
             'charset'   => 'utf-8',
             'protocol'  => 'smtp',
             'smtp_host' => 'smtp.gmail.com',
-            'smtp_user' => 'kukuruyu.akun@gmail.com',  // Email gmail
-            'smtp_pass'   => 'gmtskgfyirmitydy',  // Password gmail
+            'smtp_user' => '',  // Email gmail
+            'smtp_pass'   => '',  // Password gmail
             'smtp_crypto' => 'ssl',
             'smtp_port'   => 465,
             'crlf'    => "\r\n",
